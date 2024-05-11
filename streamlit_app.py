@@ -1,10 +1,6 @@
 import streamlit as st
 import sentiment
-import nltk
 
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
 
 # import numpy as np
 # from sklearn.datasets import make_regression

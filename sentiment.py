@@ -4,6 +4,11 @@ from nltk.tokenize import word_tokenize
 from string import punctuation
 from nltk.stem import PorterStemmer
 from textblob import TextBlob
+import nltk
+
+nltk.download("punkt")
+nltk.download("stopwords")
+nltk.download("wordnet")
 
 
 # pip install -r requirements.txt
