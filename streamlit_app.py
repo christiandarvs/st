@@ -1,12 +1,15 @@
 import streamlit as st
 import sentiment
+import nltk
 
+nltk.download("punkt")
+nltk.download("stopwords")
+nltk.download("wordnet")
 
 # import numpy as np
 # from sklearn.datasets import make_regression
 # from sklearn.linear_model import LinearRegression
 # from sklearn.model_selection import train_test_split
-st.set_page_config(page_title="My Streamlit App")
 remarks = 0
 processed_word = ""
 st.title("Introduction to Sentiment Analysis")

@@ -5,8 +5,6 @@ from string import punctuation
 from nltk.stem import PorterStemmer
 from textblob import TextBlob
 
-# nltk.download("all")
-
 
 # pip install -r requirements.txt
 def preprocessing(text):
