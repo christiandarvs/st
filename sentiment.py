@@ -1,9 +1,11 @@
+from math import e
 import streamlit as st
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from string import punctuation
-from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
 from textblob import TextBlob
+from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
 nltk.download("punkt")
@@ -20,14 +22,20 @@ def preprocessing(text):
         if word not in stopwords_english and word not in punctuation:
             clean_words.append(word)
 
-    stemmer = PorterStemmer()
-    stem_words = []
+    lemmatizer = WordNetLemmatizer()
+    lemmatize_words = []
     for word in clean_words:
-        stem_word = stemmer.stem(word)
-        stem_words.append(stem_word)
-    return " ".join(stem_words)
+        lematize_word = lemmatizer.lemmatize(word)
+        lemmatize_words.append(lematize_word)
+    return " ".join(lemmatize_words)
 
 
 def analyze_sentiment(clean_words):
     textblob = TextBlob(clean_words)
-    return textblob.sentiment.polarity, clean_words
+    score = textblob.sentiment.polarity
+    return score
+
+
+def anso(clean_words):
+    sia = SentimentIntensityAnalyzer()
+    return sia.polarity_scores(clean_words)
